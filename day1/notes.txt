@@ -1,0 +1,156 @@
+------------------------------------------------------------
+HTML NOTES
+------------------------------------------------------------
+
+1. WHAT IS HTML?
+------------------------------------------------------------
+HTML -> Hyper Text Markup Language
+- HTML is used to provide STRUCTURE to a webpage.
+- It provides structure using MARKUP ELEMENTS (tags).
+- Styling is handled by CSS (Cascading Style Sheets).
+- Logic and interactivity are handled by JavaScript.
+
+------------------------------------------------------------
+2. WHY WAS HTML CREATED?
+------------------------------------------------------------
+- HTML was originally created to LINK DOCUMENTS on the web.
+- The main purpose was to make information easily ACCESSIBLE and CONNECTED.
+
+------------------------------------------------------------
+3. WHO DO WE WRITE HTML FOR?
+------------------------------------------------------------
+We write HTML to be understood by multiple entities:
+1. Web Browsers       - To render the content visually on the screen.
+2. CSS                - To apply styles to the structured content.
+3. Search Engines     - For SEO (Search Engine Optimization) to understand and index the page.
+4. Screen Readers     - For accessibility, helping visually impaired users understand the content.
+
+------------------------------------------------------------
+4. HOW DO WE WRITE HTML?
+------------------------------------------------------------
+- HTML is written using MARKUP TAGS.
+- A tag generally consists of:
+  - Opening tag
+  - Content
+  - Closing tag
+
+Example:
+<tag-name> Content </tag-name>
+- <tag-name>  = opening tag
+- </tag-name> = closing tag
+
+- There are also SELF-CLOSING TAGS which do not need a closing tag.
+  Example: <img />, <br />, <hr />
+
+------------------------------------------------------------
+5. HTML STRUCTURE
+------------------------------------------------------------
+- HTML follows a TREE STRUCTURE.
+- Elements are nested within each other forming a parent-child relationship.
+- The <html> tag is the root element, and all other elements are its children or descendants.
+
+------------------------------------------------------------
+HTML TAGS AND ATTRIBUTES USED - EXPLANATION
+
+------------------------------------------------------------
+1. HTML DOCUMENT STRUCTURE TAGS
+------------------------------------------------------------
+<!DOCTYPE html>  - Defines the document type and HTML version.
+<html lang="en"> - Root element of the HTML document. 'lang' specifies language.
+<head>           - Container for metadata (not displayed on page).
+<meta charset="UTF-8"> - Defines character encoding (UTF-8).
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> - Makes page responsive.
+<title>         - Specifies the page title (shown in browser tab).
+<body>          - Contains all visible page content.
+
+------------------------------------------------------------
+2. HEADINGS TAGS
+------------------------------------------------------------
+<h1> to <h6> - Define headings from largest (<h1>) to smallest (<h6>).
+
+------------------------------------------------------------
+3. TEXT & FORMATTING TAGS
+------------------------------------------------------------
+<p>         - Paragraph of text.
+<b>         - Bold text (presentational).
+<i>         - Italic text (presentational).
+<u>         - Underlined text.
+<em>        - Emphasized text (semantic, usually italic).
+<address>   - Address or contact information.
+<blockquote> - Quotation block.
+<pre>       - Preformatted text (preserves spaces and line breaks).
+<span>      - Inline container (for styling small parts).
+<div>       - Block container (for grouping elements).
+
+------------------------------------------------------------
+4. IMAGE TAG
+------------------------------------------------------------
+<img>       - Embeds an image.
+
+Attributes:
+- src       : Source URL or file path of the image.
+- alt       : Alternative text (for screen readers or if image fails to load).
+- width     : Width of the image.
+- height    : Height of the image.
+
+------------------------------------------------------------
+5. LINKS AND NAVIGATION
+------------------------------------------------------------
+<a>         - Anchor tag (creates a hyperlink).
+
+Attributes:
+- href      : Destination URL or file path.
+- target    : How the link opens (_blank = new tab).
+
+------------------------------------------------------------
+6. SEMANTIC STRUCTURE TAGS
+------------------------------------------------------------
+<header>    - Header section (intro or navigation area).
+<footer>    - Footer section (bottom content like contact or copyright).
+<nav>       - Navigation bar or links container.
+<section>   - Defines a thematic grouping of content.
+<article>   - Independent, self-contained content block.
+<aside>     - Sidebar or additional content.
+<hr>        - Horizontal line (section break).
+
+------------------------------------------------------------
+7. LIST TAGS
+------------------------------------------------------------
+<ol>        - Ordered list (numbered or lettered).
+<ul>        - Unordered list (bulleted).
+<li>        - List item (inside <ol> or <ul>).
+
+Attributes for <ol>:
+- type      : Changes numbering type (e.g., "A" for capital letters).
+- reversed  : Reverses the order of the list.
+
+------------------------------------------------------------
+SUMMARY OF ATTRIBUTES USED
+------------------------------------------------------------
+lang       - Specifies language of the page (used in <html>).
+charset    - Character encoding (used in <meta>).
+name       - Metadata name (used in <meta>).
+content    - Metadata value (used in <meta>).
+src        - Source path for image (<img>) or link (<a>).
+alt        - Alternative text for images (<img>).
+width      - Width of image (<img>).
+height     - Height of image (<img>).
+href       - Link destination (<a>).
+target     - Opens link in new tab (<a>).
+type       - Type of numbering (<ol>).
+reversed   - Reverses list order (<ol>).
+
+------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------
+This HTML file uses a wide variety of tags, including:
+- Document structure tags (<html>, <head>, <body>)
+- Headings (<h1> to <h6>)
+- Text formatting (<p>, <b>, <i>, <u>, <em>, <blockquote>, <pre>, <address>)
+- Multimedia (<img>)
+- Links (<a>)
+- Semantic structure (<header>, <footer>, <nav>, <section>, <article>, <aside>, <hr>)
+- Lists (<ol>, <ul>, <li>)
+- Containers (<div>, <span>)
+
+Each tag serves a unique purpose in structuring and presenting web content.
