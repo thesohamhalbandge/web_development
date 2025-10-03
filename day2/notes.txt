@@ -1,0 +1,335 @@
+----------------------------------------------------------------
+Document-Level Elements
+----------------------------------------------------------------
+1) <!DOCTYPE html>
+- Purpose: Informs the browser to use HTML5 parsing mode (standards mode).
+- Syntax: Must be the very first line.
+- Notes: No closing tag; not case-sensitive.
+
+2) <html lang="en">
+- Purpose: Root element wrapping the entire document.
+- Attributes:
+  - lang="en": Declares the primary language for accessibility, SEO, screen readers.
+- Best practice: Keep a single <html> element; set an accurate lang.
+- Closing: Requires </html>.
+
+3) <head>
+- Purpose: Contains metadata and resources that don’t render directly (charset, viewport, title, links, scripts).
+- Closing: Requires </head>.
+
+4) <meta charset="UTF-8" />
+- Purpose: Declares character encoding (UTF-8).
+- Importance: Avoids garbled characters.
+
+5) <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+- Purpose: Controls responsive layout on mobile.
+- Effect: width=device-width matches device width; initial-scale=1 prevents zoomed-in/out defaults.
+
+6) <title>Document</title>
+- Purpose: Sets the page’s title (browser tab, bookmarks, SEO).
+- Best practice: Use a descriptive, concise title.
+
+7) <body>
+- Purpose: Contains all visible page content.
+- Closing: Requires </body>.
+
+----------------------------------------------------------------
+Sectioning & Grouping
+----------------------------------------------------------------
+8) <div id="class-agenda" class="agenda-box"> ... </div>
+9) <div id="project-agenda" class="agenda-box"> ... </div>
+10) <div> ... </div> (multiple)
+- Purpose: Generic grouping container with no inherent semantics.
+- Attributes used:
+  - id="...": Unique identifier per page (must not repeat). Used for deep linking (#id), JS hooks, and CSS.
+  - class="...": Reusable styling and scripting hooks. Multiple elements can share the same class.
+- Best practice: Prefer semantic elements (<section>, <article>, <aside>) when appropriate; <div> remains fine for generic grouping.
+
+11) <h2>Today's Class Agenda</h2> and <h2>Today's Project Agenda</h2>
+- Purpose: Section headings (level 2).
+- Best practice: Maintain logical outline order (h1 → h2 → h3…).
+
+12) <ol> ... </ol> with <li> items
+- Purpose: Ordered list; items are automatically numbered.
+- Child: <li> (list item) must be a direct or nested descendant.
+- Best practice: Use <ul> for unordered bullets; <ol> for sequences/steps.
+
+----------------------------------------------------------------
+Media & Embeds (commented examples)
+----------------------------------------------------------------
+[Note: These examples are inside HTML comments, so they won’t render, but they illustrate correct usage.]
+
+13) <!-- HTML comments -->
+- Purpose: Documenting or temporarily disabling blocks.
+- Syntax: <!-- comment --> (no nested comments in HTML).
+
+14) <audio src="./aud.mp3" controls>Fallback text</audio>
+- Purpose: Embeds audio.
+- Attributes:
+  - src="...": Path/URL to audio file.
+  - controls: Shows play/pause UI.
+- Children:
+  - Fallback text (or <source> elements) displayed if unsupported.
+- Best practice:
+  - Prefer multiple <source> elements with type attributes for broader codec support.
+  - Provide captions/transcripts for accessibility when relevant.
+
+15) <video width="250" src="./vid.mp4" controls autoplay muted></video>
+- Purpose: Embeds video.
+- Attributes:
+  - width="250": Intrinsic display width in CSS pixels.
+  - src, controls: as above.
+  - autoplay: Attempts to start playback automatically.
+  - muted: Needed for autoplay to work reliably in modern browsers.
+- Best practice:
+  - Provide controls for usability.
+  - Offer <track> for captions.
+  - Generally avoid autoplay with sound.
+
+16) <iframe src="https://getbootstrap.com/" width="500" frameborder="0"></iframe>
+- Purpose: Embeds another page.
+- Attributes:
+  - src="...": URL to embed.
+  - width="500": Display width.
+  - frameborder="0": Obsolete in HTML5 (use CSS: iframe { border: 0; }).
+- Security best practice:
+  - Consider sandbox, allow, and referrerpolicy for tighter control.
+
+17) <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/..."
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+- Purpose: Embeds YouTube video.
+- Attributes:
+  - width/height: Display size.
+  - title: Accessibility label; good practice.
+  - frameborder="0": Obsolete.
+  - allow="...": Grants specific capabilities to the embedded content.
+  - referrerpolicy: Controls the Referer header; improves privacy.
+  - allowfullscreen: Allows Fullscreen API.
+- Best practice:
+  - Keep the title meaningful.
+  - Limit allowed features to what’s necessary (principle of least privilege).
+
+18) <iframe
+      src="https://www.google.com/maps/embed?pb=..."
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+- Purpose: Embeds an interactive map.
+- Attributes:
+  - style="border: 0": Removes border via inline CSS.
+  - loading="lazy": Defers loading until near viewport (performance).
+  - referrerpolicy: Controls referrer behavior.
+- Best practice:
+  - Prefer CSS classes over inline styles for maintainability.
+
+19) <figure> <img ...> <figcaption> ... </figcaption> </figure>
+- Purpose: Associates media/illustrations with a caption.
+- Children:
+  - <img>: The image itself.
+  - <figcaption>: Caption describing the figure.
+- Best practice:
+  - Use informative alt text on <img>.
+  - <figcaption> is optional but valuable for context.
+
+20) <img src="../day1/git-contrib.png" alt="Ajay Sharma Git Contrib Chart" />
+- Purpose: Displays an image.
+- Attributes:
+  - src="...": Image URL/path.
+  - alt="...": Text alternative for screen readers and when image fails to load (required for accessibility).
+- Best practice:
+  - Make alt descriptive and concise; empty alt ("") for decorative images only.
+
+----------------------------------------------------------------
+Tabular Data
+----------------------------------------------------------------
+21) <table align="center" border="1" cellspacing="10" cellpadding="10"> ... </table>
+- Purpose: Represents tabular data.
+- Attributes present (legacy/obsolete in HTML5):
+  - align, border, cellspacing, cellpadding are presentational and obsolete—use CSS instead (margin: 0 auto; border; border-collapse; padding; etc.).
+- Best practice:
+  - Use CSS for styling and layout.
+  - Include proper headers and scope to aid accessibility.
+
+22) <thead> ... </thead>
+- Purpose: Groups table header rows.
+- Best practice:
+  - Keep header rows here; improves semantics and sticky header behavior in some UAs.
+
+23) <tbody> ... </tbody>
+- Purpose: Groups table body rows.
+- Notes: Optional in markup but recommended for clarity.
+
+24) <tr> ... </tr>
+- Purpose: Table row container.
+
+25) <th> ... </th>
+- Purpose: Header cell (column or row header).
+- Attributes used:
+  - rowspan="2": Cell spans two rows vertically.
+  - colspan="3": Cell spans three columns horizontally.
+- Best practice:
+  - Consider scope="col" or scope="row" for assistive tech.
+  - Keep header labels concise and clear.
+
+26) <td> ... </td>
+- Purpose: Data cell.
+
+----------------------------------------------------------------
+Forms
+----------------------------------------------------------------
+27) <form> ... </form>
+- Purpose: Collects and submits user input.
+- Notes:
+  - No action/method specified; defaults to GET current URL (not recommended for real submissions).
+- Best practice:
+  - Set action="..." (endpoint) and method="post" for sensitive data.
+  - Add novalidate when testing; otherwise rely on native validation plus server-side validation.
+
+28) <label for="full-name">Name*</label>
+29) <label for="email">Email*</label>
+- Purpose: Accessible name for form controls.
+- Attribute:
+  - for="...": Must match the id of the associated input.
+- Accessibility:
+  - Clicking the label focuses the input.
+  - Always use labels for visible inputs.
+
+30) <input type="text" id="full-name" placeholder="Enter your name" />
+- Purpose: Single-line text input.
+- Attributes:
+  - type="text": Default text field.
+  - id="...": Must be unique; links with corresponding label.
+  - placeholder="...": Hint text (not a replacement for label).
+- Best practice:
+  - Consider required, minlength, maxlength, pattern for validation.
+
+31) <input type="email" id="email" placeholder="Enter your email" />
+- Purpose: Email input with native validation and email keyboard on mobile.
+- Best practice:
+  - Use required when needed.
+
+[Commented input types for learning—still important to know]
+32) <input type="password" />
+- Obscures input value; use autocomplete="current-password" or "new-password" as appropriate.
+
+33) <input type="time" />
+- Time picker control.
+
+34) <input type="date" />
+- Date picker control.
+
+35) <input type="color" />
+- Color chooser.
+
+36) <input type="file" />
+- File upload. Consider accept="image/*" etc., and multiple attribute when needed.
+
+37) Checkbox group (tech stack section)
+   - <input type="checkbox" />
+   - With corresponding <label> elements (note: examples show label for="..." but inputs lack matching id—add ids in production).
+- Purpose: Multi-select options.
+- Best practice:
+  - Give each checkbox a unique id and value; group semantically with <fieldset> and <legend> for accessibility.
+
+38) <select> ... </select> with <option> items
+- Purpose: Dropdown list.
+- Children:
+  - <option value="">Select Your University</option>
+  - <option value="amity-uni">Amity University</option>
+  - <option value="abc">ABC</option>
+  - <option selected value="mit">MIT</option>
+- Attributes:
+  - selected: Preselects that option.
+- Best practice:
+  - Pair with <label for="..."> and add id to <select>.
+  - Include a placeholder option with value="" and disable it if you require a selection.
+
+39) Radio group (gender section)
+   - <input type="radio" name="gender" value="male" />
+   - <input type="radio" name="gender" value="female" />
+   - <input type="radio" name="gender" value="other" />
+- Purpose: Single selection from a set.
+- Attributes:
+  - name="gender": Same name groups the radios (required for mutual exclusivity).
+  - value="...": Form-submitted value.
+- Best practice:
+  - Each radio should have an id and a <label for="...">.
+  - Use <fieldset> + <legend> (“Select Your Gender”) for screen readers.
+
+[More commented input types shown later—still useful]
+40) <input type="range" />
+- Slider control; use min, max, step, value.
+
+41) <input type="button" value="Hey, I am a button of type 'button'" />
+- Generic clickable button that does not submit a form by default.
+- Prefer <button type="button"> for better semantics and flexibility.
+
+42) <input type="number" />
+- Numeric input with stepper UI; use min, max, step.
+
+43) <input type="tel" />
+- Telephone input; mobile devices show phone keypad. Use pattern for validation if needed.
+
+44) <button>Submit</button>
+- Purpose: Button element (submits form when inside <form>).
+- Default type inside forms is type="submit".
+- Best practice:
+  - Explicitly set type="submit" or type="button" to avoid ambiguity.
+
+----------------------------------------------------------------
+Attributes & Patterns Worth Noting
+----------------------------------------------------------------
+A) id vs class
+- id: Unique per page; used for anchoring, scripting, and specific CSS hooks.
+- class: Reusable; target groups of elements for styling/JS.
+
+B) Table attributes (legacy)
+- align, border, cellspacing, cellpadding: Presentational and obsolete in HTML5; replace with CSS:
+  - Center table: margin-inline: auto;
+  - Borders: border / border-collapse: collapse;
+  - Inner spacing: padding in <th>/<td>; gap sim via border-spacing in CSS (not HTML attributes).
+
+C) Accessibility & semantics
+- Always pair inputs with labels via for/id.
+- Use fieldset/legend for groups (checkboxes, radios).
+- Provide alt text for images.
+- Provide title on iframes (especially when embedding media) to describe content.
+
+D) Security & privacy for embeds
+- iframes: Consider sandbox, allow, and referrerpolicy to limit capabilities and data leakage.
+- Allow only needed features (e.g., allow="encrypted-media; picture-in-picture").
+
+E) Performance
+- loading="lazy" on images/iframes where appropriate to improve performance.
+- Defer large embeds below the fold.
+
+F) Autocomplete & validation (not present but recommended)
+- Add autocomplete attributes (name, email, current-password, etc.) for better UX.
+- Use required, pattern, min/max, step for client-side validation.
+
+----------------------------------------------------------------
+Quick Checklist Mapping: Tags Actually Present in Your Snippet
+----------------------------------------------------------------
+- Doctype: <!DOCTYPE html>
+- Root: <html>
+- Head elements: <head>, <meta>, <title>
+- Body container: <body>
+- Grouping/structure: <div>
+- Headings: <h2>
+- Lists: <ol>, <li>
+- Media (commented): <audio>, <video>, <iframe> (site, YouTube, Google Maps), <figure>, <img>, <figcaption>
+- Tables: <table>, <thead>, <tbody>, <tr>, <th>, <td>
+- Forms & controls: <form>, <label>, <input> (text, email, password, time, date, color, file, checkbox, radio, range, button, number, tel), <select>, <option>, <button>
+- Comments: <!-- ... -->
