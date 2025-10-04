@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/63654351/how-to-remove-empty-space-in-table-when-using-rowspan-with-uneven-number-of-colu
+
+W3C error: cellpadding and border attributes are obsolete
+Table3: W3c error: use th for scope and not td but in question student list is not in bold
+
+In form2.html homework, how to make sure that all input boxes are in the same alignment.
+
+in form2.html homework, for dept category the input types are checkboxes how can we make sure we can select only one checkbox
+
